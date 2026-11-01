@@ -1,0 +1,4 @@
+{"waivers": [
+  {"rule": "GR002", "resource": "azurerm_cognitive_account.main", "owner": "synthetic-platform-team",
+   "reason": "synthetic: expires on the run date, still valid that day", "expires": "2026-11-01"}
+]}

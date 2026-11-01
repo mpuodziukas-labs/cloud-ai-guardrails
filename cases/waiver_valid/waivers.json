@@ -1,0 +1,4 @@
+{"waivers": [
+  {"rule": "GR002", "resource": "azurerm_cognitive_account.main", "owner": "synthetic-platform-team",
+   "reason": "synthetic: public access needed during migration window", "expires": "2026-12-31"}
+]}

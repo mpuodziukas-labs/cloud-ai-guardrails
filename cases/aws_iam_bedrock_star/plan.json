@@ -1,0 +1,21 @@
+{
+  "format_version": "1.2",
+  "planned_values": {"root_module": {"resources": [
+    {"address": "aws_kms_key.ai", "mode": "managed", "type": "aws_kms_key", "name": "ai",
+     "values": {"description": "synthetic key", "enable_key_rotation": true,
+                "tags": {"data_classification": "confidential", "owner": "synthetic-platform-team"}}},
+    {"address": "aws_vpc_endpoint.bedrock_runtime", "mode": "managed", "type": "aws_vpc_endpoint", "name": "bedrock_runtime",
+     "values": {"service_name": "com.amazonaws.us-east-1.bedrock-runtime", "vpc_endpoint_type": "Interface",
+                "vpc_id": "vpc-00000000", "private_dns_enabled": true,
+                "tags": {"data_classification": "confidential", "owner": "synthetic-platform-team"}}},
+    {"address": "aws_bedrock_model_invocation_logging_configuration.main", "mode": "managed",
+     "type": "aws_bedrock_model_invocation_logging_configuration", "name": "main",
+     "values": {"logging_config": [{"text_data_delivery_enabled": true, "embedding_data_delivery_enabled": true,
+                "cloudwatch_config": [{"log_group_name": "/synthetic/bedrock", "role_arn": "arn:aws:iam::000000000000:role/synthetic-bedrock-logs"}]}]}},
+    {"address": "aws_iam_policy.invoke", "mode": "managed", "type": "aws_iam_policy", "name": "invoke",
+     "values": {"name": "synthetic-invoke",
+                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":\"bedrock:*\",\"Resource\":\"arn:aws:bedrock:us-east-1::foundation-model/synthetic.model-v1\"}]}",
+                "tags": {"data_classification": "confidential", "owner": "synthetic-platform-team"}}}
+  ]}},
+  "variables": {"aws_region": {"value": "us-east-1"}}
+}

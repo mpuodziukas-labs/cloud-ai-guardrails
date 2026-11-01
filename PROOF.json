@@ -1,0 +1,162 @@
+{
+  "matched": 26,
+  "total": 26,
+  "cases": [
+    {
+      "case": "aws_all_good",
+      "expected": "exit=0 -",
+      "got": "exit=0 -",
+      "match": true
+    },
+    {
+      "case": "aws_iam_bedrock_star",
+      "expected": "exit=1 GR006",
+      "got": "exit=1 GR006",
+      "match": true
+    },
+    {
+      "case": "aws_iam_invoke_star_resource",
+      "expected": "exit=1 GR006",
+      "got": "exit=1 GR006",
+      "match": true
+    },
+    {
+      "case": "aws_iam_policy_invalid_json",
+      "expected": "exit=1 GR006",
+      "got": "exit=1 GR006",
+      "match": true
+    },
+    {
+      "case": "aws_kms_rotation_off",
+      "expected": "exit=1 GR004",
+      "got": "exit=1 GR004",
+      "match": true
+    },
+    {
+      "case": "aws_no_logging",
+      "expected": "exit=1 GR005",
+      "got": "exit=1 GR005",
+      "match": true
+    },
+    {
+      "case": "aws_no_private_endpoint",
+      "expected": "exit=1 GR001",
+      "got": "exit=1 GR001",
+      "match": true
+    },
+    {
+      "case": "aws_tags_missing",
+      "expected": "exit=1 GR008",
+      "got": "exit=1 GR008",
+      "match": true
+    },
+    {
+      "case": "azure_all_good",
+      "expected": "exit=0 -",
+      "got": "exit=0 -",
+      "match": true
+    },
+    {
+      "case": "azure_kind_unknown",
+      "expected": "exit=1 GR000 GR000",
+      "got": "exit=1 GR000 GR000",
+      "match": true
+    },
+    {
+      "case": "azure_local_auth_on",
+      "expected": "exit=1 GR003",
+      "got": "exit=1 GR003",
+      "match": true
+    },
+    {
+      "case": "azure_no_cmk",
+      "expected": "exit=1 GR004",
+      "got": "exit=1 GR004",
+      "match": true
+    },
+    {
+      "case": "azure_no_diagnostics",
+      "expected": "exit=1 GR005",
+      "got": "exit=1 GR005",
+      "match": true
+    },
+    {
+      "case": "azure_no_private_endpoint",
+      "expected": "exit=1 GR001",
+      "got": "exit=1 GR001",
+      "match": true
+    },
+    {
+      "case": "azure_owner_tag_blank",
+      "expected": "exit=1 GR008",
+      "got": "exit=1 GR008",
+      "match": true
+    },
+    {
+      "case": "azure_public_access_missing",
+      "expected": "exit=1 GR002",
+      "got": "exit=1 GR002",
+      "match": true
+    },
+    {
+      "case": "azure_public_access_on",
+      "expected": "exit=1 GR002",
+      "got": "exit=1 GR002",
+      "match": true
+    },
+    {
+      "case": "azure_unknown_public_access",
+      "expected": "exit=1 GR002",
+      "got": "exit=1 GR002",
+      "match": true
+    },
+    {
+      "case": "bad_plan_shape",
+      "expected": "exit=2 -",
+      "got": "exit=2 -",
+      "match": true
+    },
+    {
+      "case": "no_in_scope_resources",
+      "expected": "exit=1 GR000",
+      "got": "exit=1 GR000",
+      "match": true
+    },
+    {
+      "case": "unparseable_plan",
+      "expected": "exit=2 -",
+      "got": "exit=2 -",
+      "match": true
+    },
+    {
+      "case": "variable_hardcoded_key",
+      "expected": "exit=1 GR007 GR007",
+      "got": "exit=1 GR007 GR007",
+      "match": true
+    },
+    {
+      "case": "waiver_boundary_today",
+      "expected": "exit=0 GR002w",
+      "got": "exit=0 GR002w",
+      "match": true
+    },
+    {
+      "case": "waiver_expired",
+      "expected": "exit=1 GR002 GR900",
+      "got": "exit=1 GR002 GR900",
+      "match": true
+    },
+    {
+      "case": "waiver_incomplete",
+      "expected": "exit=1 GR002 GR900",
+      "got": "exit=1 GR002 GR900",
+      "match": true
+    },
+    {
+      "case": "waiver_valid",
+      "expected": "exit=0 GR002w",
+      "got": "exit=0 GR002w",
+      "match": true
+    }
+  ]
+}

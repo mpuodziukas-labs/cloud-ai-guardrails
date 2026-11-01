@@ -1,0 +1,11 @@
+name: ci
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - run: /usr/bin/python3 -m pip install --break-system-packages pytest
+      - run: bash run.sh

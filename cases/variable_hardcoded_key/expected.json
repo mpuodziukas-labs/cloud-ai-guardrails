@@ -1,0 +1,1 @@
+{"today": "2026-11-01", "exit": 1, "findings": ["GR007 var.deploy_access_key_id FAIL", "GR007 var.openai_api_key FAIL"]}

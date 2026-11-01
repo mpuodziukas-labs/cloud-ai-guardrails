@@ -1,0 +1,10 @@
+{
+  "format_version": "1.2",
+  "planned_values": {"root_module": {"resources": [
+    {"address": "azurerm_cognitive_account.main", "mode": "managed", "type": "azurerm_cognitive_account", "name": "main",
+     "values": {"name": "synthetic-openai", "sku_name": "S0",
+                "public_network_access_enabled": true, "local_auth_enabled": true,
+                "tags": {"data_classification": "confidential", "owner": "synthetic-platform-team"}}}
+  ]}},
+  "variables": {}
+}

@@ -1,0 +1,21 @@
+{
+  "format_version": "1.2",
+  "planned_values": {"root_module": {"resources": [
+    {"address": "azurerm_cognitive_account.main", "mode": "managed", "type": "azurerm_cognitive_account", "name": "main",
+     "values": {"name": "synthetic-openai", "kind": "OpenAI", "sku_name": "S0",
+                "public_network_access_enabled": false, "local_auth_enabled": false,
+                "tags": {"data_classification": "confidential", "owner": "synthetic-platform-team"}}},
+    {"address": "azurerm_private_endpoint.openai", "mode": "managed", "type": "azurerm_private_endpoint", "name": "openai",
+     "values": {"name": "synthetic-pe",
+                "private_service_connection": [{"name": "synthetic-psc", "is_manual_connection": false,
+                  "subresource_names": ["account"],
+                  "private_connection_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-synthetic/providers/Microsoft.CognitiveServices/accounts/synthetic-openai"}],
+                "tags": {"data_classification": "confidential", "owner": "synthetic-platform-team"}}},
+    {"address": "azurerm_monitor_diagnostic_setting.openai", "mode": "managed", "type": "azurerm_monitor_diagnostic_setting", "name": "openai",
+     "values": {"name": "synthetic-diag",
+                "target_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-synthetic/providers/Microsoft.CognitiveServices/accounts/synthetic-openai",
+                "log_analytics_workspace_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-synthetic/providers/Microsoft.OperationalInsights/workspaces/synthetic-law",
+                "enabled_log": [{"category": "Audit"}]}}
+  ]}},
+  "variables": {"location": {"value": "eastus"}}
+}
