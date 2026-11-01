@@ -19,6 +19,26 @@ def test_non_plan_shapes_raise_bad_input(plan):
         guardrails.evaluate(plan)
 
 
+@pytest.mark.parametrize("key", ["resources", "child_modules"])
+@pytest.mark.parametrize("bad", [5, True, -1.5])
+def test_non_list_resources_or_children_raise_bad_input(key, bad):
+    plan = azure()
+    plan["planned_values"]["root_module"][key] = bad
+    with pytest.raises(guardrails.BadInput):
+        guardrails.evaluate(plan)
+
+
+def test_evaluate_rejects_arguments_with_exit_two():
+    import os
+    import subprocess
+    import sys
+    from helpers import ROOT
+    r = subprocess.run([sys.executable, os.path.join(ROOT, "evaluate.py"), "--bogus"],
+                       capture_output=True, text=True)
+    assert r.returncode == 2
+    assert "usage" in r.stderr
+
+
 def test_resource_without_address_raises_bad_input():
     plan = {"planned_values": {"root_module": {"resources": [{"type": "x", "values": {}}]}}}
     with pytest.raises(guardrails.BadInput):

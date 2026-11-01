@@ -141,7 +141,11 @@ def load_json(path: str, label: str) -> Any:
 def _walk(module: Any, out: List[Res], unknown: Dict[str, Any], depth: int) -> None:
     if not isinstance(module, dict) or depth > 40:
         raise BadInput("planned_values module is malformed")
-    for item in module.get("resources", []) or []:
+    resources = module.get("resources", []) or []
+    children = module.get("child_modules", []) or []
+    if not isinstance(resources, list) or not isinstance(children, list):
+        raise BadInput("planned_values module is malformed")
+    for item in resources:
         if not isinstance(item, dict) or not isinstance(item.get("address"), str) \
                 or not isinstance(item.get("type"), str):
             raise BadInput("planned_values resource needs string address and type")
@@ -151,7 +155,7 @@ def _walk(module: Any, out: List[Res], unknown: Dict[str, Any], depth: int) -> N
         if not isinstance(values, dict):
             raise BadInput("resource %s has non-object values" % item["address"])
         out.append(Res(item["address"], item["type"], values, unknown.get(item["address"])))
-    for child in module.get("child_modules", []) or []:
+    for child in children:
         _walk(child, out, unknown, depth + 1)
 
 
